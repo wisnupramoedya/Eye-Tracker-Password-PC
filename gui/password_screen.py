@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, cast
+from typing import List
 
 import qtawesome
 from PyQt6 import QtGui
@@ -9,9 +9,8 @@ from PyQt6.uic import loadUi
 
 from capturers import Capture
 from frame_sources import FrameSource
-from gui.data.ScreenConst import ScreenConst
-
 from gui.data.Icons import randomized_icon
+from gui.data.ScreenConst import ScreenConst
 from settings import Settings
 
 

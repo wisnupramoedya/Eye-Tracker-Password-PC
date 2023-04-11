@@ -1,6 +1,5 @@
 from typing import List
 
-from PyQt6 import QtGui, QtCore
 from PyQt6.QtWidgets import QStackedWidget, QWidget
 
 from capturers import Capture

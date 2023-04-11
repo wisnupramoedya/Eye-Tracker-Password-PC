@@ -1,8 +1,8 @@
 from pathlib import Path
 from typing import List
 
-from PyQt6 import QtGui, QtCore
-from PyQt6.QtCore import Qt, QEvent
+from PyQt6 import QtGui
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QLabel, QFrame, QStackedWidget, QMainWindow
 from PyQt6.uic import loadUi
 
