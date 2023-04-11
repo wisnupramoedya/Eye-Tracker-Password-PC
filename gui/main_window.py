@@ -7,6 +7,7 @@ from frame_sources import FrameSource
 from gui.calibration_screen import CalibrationScreen
 from gui.data.ScreenConst import ScreenConst
 from gui.password_screen import PasswordScreen
+from gui.success_screen import SuccessScreen
 
 
 class MainWindow(QStackedWidget):
@@ -19,7 +20,8 @@ class MainWindow(QStackedWidget):
         self.set_screens()
 
     def set_screens(self):
-        self.addWidget(CalibrationScreen(capture=self.capture, controller_widget=self))
-        self.addWidget(PasswordScreen(capture=self.capture, controller_widget=self))
-        self.setCurrentIndex(ScreenConst.PASSWORD_SCREEN)
+        self.addWidget(CalibrationScreen(controller_widget=self))
+        self.addWidget(PasswordScreen(controller_widget=self))
+        self.addWidget(SuccessScreen(controller_widget=self))
+        self.setCurrentIndex(ScreenConst.CALIBRATION_SCREEN)
 
