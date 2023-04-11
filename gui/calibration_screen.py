@@ -3,19 +3,18 @@ from typing import List
 
 from PyQt6 import QtGui
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QLabel, QFrame, QStackedWidget, QMainWindow
+from PyQt6.QtWidgets import QLabel, QFrame, QMainWindow
 from PyQt6.uic import loadUi
 
-from capturers import Capture
-from frame_sources import FrameSource
 from gui.data.ScreenConst import ScreenConst
+from gui.main_window import MainWindow
 from settings import Settings
 
 
 class CalibrationScreen(QMainWindow):
     # Path for UI and index setting
     FILE_PATH: Path = Settings.ASSETS / "Calibration.ui"
-    controller_widget: QStackedWidget
+    controller_widget: MainWindow
 
     # Labelling the frame in grid layout for calibration (it will be dynamically detected)
     gl_11: QLabel
@@ -27,7 +26,7 @@ class CalibrationScreen(QMainWindow):
     widget_show_lists: List[QFrame]
     widget_index: int = 0
 
-    def __init__(self, capture: Capture, controller_widget: QStackedWidget, video_source: FrameSource = None):
+    def __init__(self, controller_widget: MainWindow):
         super(CalibrationScreen, self).__init__()
         self.controller_widget = controller_widget
         loadUi(self.FILE_PATH, self)

@@ -4,13 +4,12 @@ from typing import List
 import qtawesome
 from PyQt6 import QtGui
 from PyQt6.QtCore import Qt, QSize
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QLabel, QGridLayout, QLayoutItem
+from PyQt6.QtWidgets import QMainWindow, QLabel, QGridLayout, QLayoutItem
 from PyQt6.uic import loadUi
 
-from capturers import Capture
-from frame_sources import FrameSource
-from gui.data.Icons import randomized_icon
+from gui.data.Icons import Icons
 from gui.data.ScreenConst import ScreenConst
+from gui.main_window import MainWindow
 from settings import Settings
 
 
@@ -23,11 +22,13 @@ class PasswordEvent:
 class PasswordScreen(QMainWindow):
     # Path for UI and index setting
     FILE_PATH: Path = Settings.ASSETS / "Password.ui"
-    controller_widget: QStackedWidget
+    controller_widget: MainWindow
 
     title: QLabel
     instruction: QLabel
     gridLayout: QGridLayout
+
+    icons = Icons()
 
     password_event: List[PasswordEvent] = [
         PasswordEvent("Check Password 1 - Icon Location", "Press “space” when your eyes look at the correct icon"),
@@ -35,7 +36,7 @@ class PasswordScreen(QMainWindow):
     ]
     event_index: int = 0
 
-    def __init__(self, capture: Capture, controller_widget: QStackedWidget, video_source: FrameSource = None):
+    def __init__(self, controller_widget: MainWindow):
         super(PasswordScreen, self).__init__()
         self.controller_widget = controller_widget
         loadUi(self.FILE_PATH, self)
@@ -52,7 +53,8 @@ class PasswordScreen(QMainWindow):
             self.set_password_event()
 
             if self.event_index == 0:
-                self.controller_widget.setCurrentIndex(ScreenConst.CALIBRATION_SCREEN)
+                self.icons.generate_random_icon()
+                self.controller_widget.setCurrentIndex(ScreenConst.SUCCESS_SCREEN)
 
     def set_password_event(self):
         self.title.setText(self.password_event[self.event_index].title)
@@ -65,5 +67,5 @@ class PasswordScreen(QMainWindow):
                 label: QLabel = grid_item.widget()
 
                 position = x * 5 + y
-                label.setPixmap(qtawesome.icon(randomized_icon[position]).pixmap(QSize(100, 100)))
+                label.setPixmap(qtawesome.icon(self.icons.randomized_icon[position]).pixmap(QSize(100, 100)))
                 label.setAlignment(Qt.AlignmentFlag.AlignCenter)
