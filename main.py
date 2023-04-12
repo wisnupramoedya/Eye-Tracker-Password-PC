@@ -2,12 +2,11 @@ import argparse
 import logging
 import sys
 
+from PyQt6.QtWidgets import QApplication
+
 from capturers.haar_blob import HaarCascadeBlobCapture
 from frame_sources import (CameraFrameSource, FileFrameSource,
                            FolderFrameSource, VideoFrameSource)
-from gui.calibration_screen import CalibrationScreen
-from PyQt6.QtWidgets import QApplication
-
 from gui.main_window import MainWindow
 
 FRAME_SOURCES = {

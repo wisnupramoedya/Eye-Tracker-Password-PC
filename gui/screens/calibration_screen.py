@@ -7,14 +7,14 @@ from PyQt6.QtWidgets import QLabel, QFrame, QMainWindow
 from PyQt6.uic import loadUi
 
 from gui.data.ScreenConst import ScreenConst
-from gui.main_window import MainWindow
+from gui.window import Window
 from settings import Settings
 
 
 class CalibrationScreen(QMainWindow):
     # Path for UI and index setting
     FILE_PATH: Path = Settings.ASSETS / "Calibration.ui"
-    controller_widget: MainWindow
+    controller_widget: Window
 
     # Labelling the frame in grid layout for calibration (it will be dynamically detected)
     gl_11: QLabel
@@ -26,7 +26,7 @@ class CalibrationScreen(QMainWindow):
     widget_show_lists: List[QFrame]
     widget_index: int = 0
 
-    def __init__(self, controller_widget: MainWindow):
+    def __init__(self, controller_widget: Window):
         super(CalibrationScreen, self).__init__()
         self.controller_widget = controller_widget
         loadUi(self.FILE_PATH, self)
@@ -51,6 +51,7 @@ class CalibrationScreen(QMainWindow):
 
     def keyPressEvent(self, event: QtGui.QKeyEvent) -> None:
         if event.key() == Qt.Key.Key_Space:
+            self.controller_widget.stop()
             self.widget_index += 1
             if self.widget_index == 4:
                 self.widget_index = 0

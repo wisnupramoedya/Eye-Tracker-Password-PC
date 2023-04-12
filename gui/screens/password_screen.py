@@ -9,7 +9,7 @@ from PyQt6.uic import loadUi
 
 from gui.data.Icons import Icons
 from gui.data.ScreenConst import ScreenConst
-from gui.main_window import MainWindow
+from gui.window import Window
 from settings import Settings
 
 
@@ -22,7 +22,7 @@ class PasswordEvent:
 class PasswordScreen(QMainWindow):
     # Path for UI and index setting
     FILE_PATH: Path = Settings.ASSETS / "Password.ui"
-    controller_widget: MainWindow
+    controller_widget: Window
 
     title: QLabel
     instruction: QLabel
@@ -36,7 +36,7 @@ class PasswordScreen(QMainWindow):
     ]
     event_index: int = 0
 
-    def __init__(self, controller_widget: MainWindow):
+    def __init__(self, controller_widget: Window):
         super(PasswordScreen, self).__init__()
         self.controller_widget = controller_widget
         loadUi(self.FILE_PATH, self)
