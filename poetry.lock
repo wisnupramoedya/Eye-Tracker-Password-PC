@@ -60,6 +60,17 @@ files = [
 ]
 
 [[package]]
+name = "dlib"
+version = "19.24.1"
+description = "A toolkit for making real world machine learning and data analysis applications"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "dlib-19.24.1.tar.gz", hash = "sha256:e8d3ca047d525eeb36cc47bce45ed0562dab40b0b8f5fa171600dde2fec509c0"},
+]
+
+[[package]]
 name = "importlib-metadata"
 version = "6.3.0"
 description = "Read metadata from Python packages"
@@ -496,4 +507,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7,<3.11"
-content-hash = "d1bda6a255dcb6b897dbe219156fc001a2ffcf2e10af7b4c0ea0846dbccab37f"
+content-hash = "5a2655d6ed14d7037474058b88258874ef7fe64a71b0ee30f75b4033c77eaefc"

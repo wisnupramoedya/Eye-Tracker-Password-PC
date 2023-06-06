@@ -2,8 +2,10 @@ import logging
 from typing import Optional
 
 import numpy
-from cv2 import cv2
+import cv2
 from cv2.data import haarcascades
+
+from capturers import Capture
 from settings import settings
 
 logger = logging.getLogger(__name__)
@@ -13,10 +15,10 @@ class CV2Error(Exception):
     pass
 
 
-class HaarCascadeBlobCapture:
+class HaarCascadeBlobCapture(Capture):
     """
     Class captures face and eyes using Haar Cascades.
-    Detectes pupils using image processing with blob detection.
+    Detecting pupils using image processing with blob detection.
     Gaze estimation can be achieved by extracting x, y coordinates of the blobs
     Detailed description can be found here:
     https://medium.com/@stepanfilonov/tracking-your-eyes-with-python-3952e66194a6
@@ -29,8 +31,8 @@ class HaarCascadeBlobCapture:
     def __init__(self):
         self.previous_left_blob_area = 1
         self.previous_right_blob_area = 1
-        self.previous_left_keypoints = None
-        self.previous_right_keypoints = None
+        self.previous_left_key_points = None
+        self.previous_right_key_points = None
 
     def init_blob_detector(self):
         detector_params = cv2.SimpleBlobDetector_Params()
@@ -58,7 +60,7 @@ class HaarCascadeBlobCapture:
             return None
 
         for (x, y, w, h) in biggest:
-            frame = img[y : y + h, x : x + w]
+            frame = img[y: y + h, x: x + w]
             return frame
 
     @staticmethod
@@ -74,7 +76,7 @@ class HaarCascadeBlobCapture:
         return img
 
     def detect_eyes(
-        self, face_img: numpy.ndarray, cut_brows=True
+            self, face_img: numpy.ndarray, cut_brows=True
     ) -> (Optional[numpy.ndarray], Optional[numpy.ndarray]):
         """
         Detect eyes, optionally cut the eyebrows out
@@ -88,11 +90,11 @@ class HaarCascadeBlobCapture:
         for (x, y, w, h) in coords:
             eye_center = int(float(x) + (float(w) / float(2)))
             if int(face_img.shape[0] * 0.1) < eye_center < int(face_img.shape[1] * 0.4):
-                left_eye = face_img[y : y + h, x : x + w]
+                left_eye = face_img[y: y + h, x: x + w]
             elif int(face_img.shape[0] * 0.5) < eye_center < int(face_img.shape[1] * 0.9):
-                right_eye = face_img[y : y + h, x : x + w]
+                right_eye = face_img[y: y + h, x: x + w]
             else:
-                pass  # false positive - nostrill
+                pass  # false positive - nostril
 
             if cut_brows:
                 return self._cut_eyebrows(left_eye), self._cut_eyebrows(right_eye)
@@ -103,24 +105,24 @@ class HaarCascadeBlobCapture:
         img = cv2.erode(img, None, iterations=2)
         img = cv2.dilate(img, None, iterations=4)
         img = cv2.medianBlur(img, 5)
-        keypoints = self.blob_detector.detect(img)
-        if keypoints and len(keypoints) > 1:
+        key_points = self.blob_detector.detect(img)
+        if key_points and len(key_points) > 1:
             tmp = 1000
-            for keypoint in keypoints:  # filter out odd blobs
+            for keypoint in key_points:  # filter out odd blobs
                 if abs(keypoint.size - prev_area) < tmp:
                     ans = keypoint
                     tmp = abs(keypoint.size - prev_area)
 
-            keypoints = (ans,)
-        return keypoints
+            key_points = (ans,)
+        return key_points
 
-    def draw(self, source, keypoints, dest=None):
+    def draw(self, source, key_points, dest=None):
         try:
             if dest is None:
                 dest = source
             return cv2.drawKeypoints(
                 source,
-                keypoints,
+                key_points,
                 dest,
                 (0, 0, 255),
                 cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS,
@@ -148,15 +150,15 @@ class HaarCascadeBlobCapture:
             if left_eye is not None:
                 left_key_points = self.blob_track(left_eye, l_threshold, self.previous_left_blob_area)
 
-                kp = left_key_points or self.previous_left_keypoints
+                kp = left_key_points or self.previous_left_key_points
                 left_eye = self.draw(left_eye, kp, frame)
-                self.previous_left_keypoints = kp
+                self.previous_left_key_points = kp
             if right_eye is not None:
                 right_key_points = self.blob_track(right_eye, r_threshold, self.previous_right_blob_area)
 
-                kp = right_key_points or self.previous_right_keypoints
+                kp = right_key_points or self.previous_right_key_points
                 right_eye = self.draw(right_eye, kp, frame)
-                self.previous_right_keypoints = kp
+                self.previous_right_key_points = kp
 
             return frame, left_eye, right_eye
         except (cv2.error, CV2Error) as e:

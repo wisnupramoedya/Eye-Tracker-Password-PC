@@ -1,41 +1,37 @@
 import random
 from typing import List
 
+class MaterialIcon:
+    icon_name: str
+    icon_code: str
+
+    def __init__(self, icon_name: str, icon_code: str) -> None:
+        self.icon_name = icon_name
+        self.icon_code = icon_code
+
+material_icon_codes: List[MaterialIcon] = [
+    MaterialIcon('Undo', 'mdi6.undo'),
+    MaterialIcon('Apps', 'mdi6.apps'),
+    MaterialIcon('Autorenew', 'mdi6.autorenew'),
+    MaterialIcon('Home', 'mdi6.home'),
+    MaterialIcon('Delete', 'mdi6.delete'),
+    MaterialIcon('Cancel', 'mdi6.cancel'),
+    MaterialIcon('Curtains', 'mdi6.curtains'),
+    MaterialIcon('Caravan', 'mdi6.caravan'),
+    MaterialIcon('Carrot', 'mdi6.carrot'),
+    MaterialIcon('Eject', 'mdi6.eject'),
+    MaterialIcon('Spear', 'mdi6.spear'),
+    MaterialIcon('Shield', 'mdi6.shield'),
+    MaterialIcon('Sony PS', 'mdi6.sony-playstation'),
+    MaterialIcon('Forest', 'mdi6.forest'),
+    MaterialIcon('Muffin', 'mdi6.muffin'),
+    MaterialIcon('Anchor', 'mdi6.anchor')
+]
+
 
 class Icons:
-    material_icon_codes: List[str] = [
-        'mdi6.undo',
-        'mdi6.apps',
-        'mdi6.autorenew',
-        'mdi6.home',
-        'mdi6.delete',
-        'mdi6.cancel',
-        'mdi6.curtains',
-        'mdi6.caravan',
-        'mdi6.carrot',
-        'mdi6.eject',
-        'mdi6.spear',
-        'mdi6.shield',
-        'mdi6.sony-playstation',
-        'mdi6.forest',
-        'mdi6.muffin',
-        'mdi6.anchor',
-        'mdi6.transcribe',
-        'mdi6.storefront',
-        'mdi6.gas-cylinder',
-        'mdi6.gift-open-outline',
-        'mdi6.ghost',
-        'mdi6.ocarina',
-        'mdi6.golf-cart',
-        'mdi6.google-downasaur',
-        'mdi6.panda'
-    ]
-
-    randomized_icon: List[str]
-
-    def __init__(self):
-        self.generate_random_icon()
-
-    def generate_random_icon(self):
-        self.randomized_icon = self.material_icon_codes.copy()
-        random.shuffle(self.randomized_icon)
+    @staticmethod
+    def generate_random_icon() -> List[MaterialIcon]:
+        randomized_icon = material_icon_codes.copy()
+        random.shuffle(randomized_icon)
+        return randomized_icon

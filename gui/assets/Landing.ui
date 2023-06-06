@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>832</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(28, 28, 37);
+font: 16pt &quot;Inter&quot;;
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>23</y>
+      <width>1280</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Inter</family>
+      <pointsize>-1</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: 600;
+font-size: 40px;
+line-height: 130%;
+text-align: center;
+letter-spacing: 0.01em;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Welcome to Eye Authentication</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruction">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>98</y>
+      <width>1280</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: 600;
+font-size: 24px;
+line-height: 140%;
+text-align: center;
+letter-spacing: 0.01em;
+</string>
+    </property>
+    <property name="text">
+     <string>You can configure or check your password</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="configure_btn" native="true">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>260</y>
+      <width>621</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #2F2F3B;</string>
+    </property>
+    <widget class="QLabel" name="configure_button_text_example">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>90</y>
+       <width>621</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>You have 3 set of passwords</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="configure_button_text">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>621</width>
+       <height>82</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 140%;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #F88160;
+            </string>
+     </property>
+     <property name="text">
+      <string>Configure your password</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="password_btn" native="true">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>490</y>
+      <width>621</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #2F2F3B;</string>
+    </property>
+    <widget class="QLabel" name="password_button_text_example">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>90</y>
+       <width>621</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Play step by step of password sequence</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="password_button_text">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>621</width>
+       <height>82</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 140%;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #F88160;
+            </string>
+     </property>
+     <property name="text">
+      <string>Check the password</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

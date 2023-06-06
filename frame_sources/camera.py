@@ -1,4 +1,4 @@
-from cv2 import cv2
+import cv2
 
 
 class FrameSource:
@@ -17,7 +17,7 @@ class FrameSource:
     def start(self):
         if not self.camera_is_running:
             if self.cam_id is not None:
-                self.capture = cv2.VideoCapture(self.cam_id)
+                self.capture = cv2.VideoCapture(int(self.cam_id), cv2.CAP_DSHOW)
 
                 if not self._check_camera():
                     raise SystemError(f"Camera id={self.cam_id} not working")
@@ -35,6 +35,7 @@ class FrameSource:
     def stop(self):
         if self.camera_is_running:
             self.capture.release()
+            cv2.destroyAllWindows()
             self.camera_is_running = False
 
     def next_frame(self):

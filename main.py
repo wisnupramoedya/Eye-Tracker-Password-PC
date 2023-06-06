@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import QApplication
 from capturers.haar_blob import HaarCascadeBlobCapture
 from frame_sources import (CameraFrameSource, FileFrameSource,
                            FolderFrameSource, VideoFrameSource)
+from gui.camera_window import CameraWindow
 from gui.main_window import MainWindow
 
 FRAME_SOURCES = {
@@ -33,7 +34,7 @@ def get_args():
         "--camera-id",
         action="store",
         dest="camera_id",
-        choices=FRAME_SOURCES.keys(),
+        # choices=FRAME_SOURCES.keys(),
         help="If your camera has an unusual ID in the system, pass it in this argument. Use only if your frame-source "
              "is camera(default)",
     )
@@ -62,4 +63,9 @@ if __name__ == "__main__":
     window.setFixedWidth(1280)
     window.setFixedHeight(832)
     window.show()
+
+    # window = CameraWindow(capture, frame_source(**frames_source_init_kwargs))
+    # window.setWindowTitle("Eye Tracking Password - Camera")
+    # window.show()
+
     sys.exit(app.exec())

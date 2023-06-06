@@ -1,0 +1,6 @@
+numpy
+opencv_python
+PyQt6 == 6.4.2
+qtawesome
+pyqt6-tools == 6.4.2.3.3
+dlib == 19.24.1

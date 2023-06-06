@@ -14,7 +14,7 @@ class Settings:
 
     GUI_FILE_PATH: Path = e("GUI_FILE_PATH", ASSETS / "GUImain.ui")
     STYLE_FILE_PATH: Path = e("STYLE_FILE_PATH", ASSETS / "style.css")
-    REFRESH_PERIOD: int = e("CAMERA_REFRESH_PERIOD", 2)
+    REFRESH_PERIOD: int = e("CAMERA_REFRESH_PERIOD", 1000)
 
     DEBUG_DUMP = e("DEBUG_DUMP", False)
     DEBUG_DUMP_LOCATION = e("DEBUG_DUMP_LOCATION", BASE_DIR / "capturers" / "dump")

@@ -71,28 +71,63 @@ letter-spacing: 0.01em;
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>227</x>
-      <y>160</y>
-      <width>826</width>
-      <height>620</height>
+      <x>70</x>
+      <y>170</y>
+      <width>1140</width>
+      <height>640</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0">
+    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0">
      <property name="sizeConstraint">
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <property name="spacing">
-      <number>40</number>
+      <number>20</number>
      </property>
-     <item row="4" column="3">
-      <widget class="QLabel" name="gl_54">
+     <item row="0" column="2">
+      <widget class="QLabel" name="gl_13">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="gl_11">
+     <item row="3" column="1">
+      <widget class="QLabel" name="gl_42">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="gl_41">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLabel" name="gl_34">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="gl_23">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="gl_43">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="gl_14">
        <property name="text">
         <string/>
        </property>
@@ -105,8 +140,8 @@ letter-spacing: 0.01em;
        </property>
       </widget>
      </item>
-     <item row="1" column="3">
-      <widget class="QLabel" name="gl_24">
+     <item row="1" column="1">
+      <widget class="QLabel" name="gl_22">
        <property name="text">
         <string/>
        </property>
@@ -126,97 +161,6 @@ letter-spacing: 0.01em;
        </property>
       </widget>
      </item>
-     <item row="2" column="2">
-      <widget class="QLabel" name="gl_33">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QLabel" name="gl_43">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="gl_51">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="2">
-      <widget class="QLabel" name="gl_53">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="gl_14">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="gl_15">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="4">
-      <widget class="QLabel" name="gl_55">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="gl_13">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="gl_41">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="gl_42">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="gl_22">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="gl_23">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QLabel" name="gl_34">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="3">
       <widget class="QLabel" name="gl_44">
        <property name="text">
@@ -231,29 +175,22 @@ letter-spacing: 0.01em;
        </property>
       </widget>
      </item>
-     <item row="2" column="4">
-      <widget class="QLabel" name="gl_35">
+     <item row="0" column="0">
+      <widget class="QLabel" name="gl_11">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="gl_52">
+     <item row="2" column="2">
+      <widget class="QLabel" name="gl_33">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="3" column="4">
-      <widget class="QLabel" name="gl_45">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLabel" name="gl_25">
+     <item row="1" column="3">
+      <widget class="QLabel" name="gl_24">
        <property name="text">
         <string/>
        </property>
